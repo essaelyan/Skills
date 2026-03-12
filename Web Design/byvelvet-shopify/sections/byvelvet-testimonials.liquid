@@ -1,0 +1,110 @@
+<section class="bv-testimonials">
+  <!-- Header -->
+  <div class="bv-testimonials__header">
+    <p class="bv-testimonials__eyebrow bv-reveal">What They Say</p>
+    <h2 class="bv-testimonials__heading bv-reveal" data-delay="1">
+      Our <em>Community</em>
+    </h2>
+  </div>
+
+  <!-- Cards -->
+  <div class="bv-testimonials__grid bv-max-w">
+    {%- for i in (1..3) -%}
+      {%- liquid
+        case i
+          when 1
+            assign t_name     = section.settings.t1_name     | default: 'Noor Al-Hassan'
+            assign t_location = section.settings.t1_location | default: 'Kuwait City'
+            assign t_text     = section.settings.t1_text     | default: 'ByVelvet completely transformed my wardrobe. The quality of every piece is exceptional — you can feel the luxury the moment you put it on. My go-to for special occasions and everyday elegance.'
+            assign t_avatar   = section.settings.t1_avatar   | default: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80'
+          when 2
+            assign t_name     = section.settings.t2_name     | default: 'Layla Mahmoud'
+            assign t_location = section.settings.t2_location | default: 'Dubai, UAE'
+            assign t_text     = section.settings.t2_text     | default: "I've shopped with many luxury brands, but ByVelvet stands apart. The curation is impeccable and every piece feels like it was made just for me. Absolutely obsessed with my Velvet Slip Dress."
+            assign t_avatar   = section.settings.t2_avatar   | default: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80'
+          when 3
+            assign t_name     = section.settings.t3_name     | default: 'Sara Al-Rashidi'
+            assign t_location = section.settings.t3_location | default: 'Riyadh, Saudi Arabia'
+            assign t_text     = section.settings.t3_text     | default: 'Fast shipping, stunning packaging, and clothes that look even better in person. ByVelvet has mastered the art of online luxury fashion. My entire family now orders from them!'
+            assign t_avatar   = section.settings.t3_avatar   | default: 'https://tempfile.redpandaai.co/kieai/661779/creative-content-engine/1773010126333-5gbxlbe0yda.png'
+        endcase
+      -%}
+      <div class="bv-testimonial-card bv-reveal" data-delay="{{ i }}">
+        <!-- Stars -->
+        <div class="bv-testimonial-card__stars">
+          <svg class="bv-testimonial-card__star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="bv-testimonial-card__star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="bv-testimonial-card__star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="bv-testimonial-card__star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="bv-testimonial-card__star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+
+        <!-- Quote -->
+        <p class="bv-testimonial-card__text">&#8220;{{ t_text }}&#8221;</p>
+
+        <!-- Author -->
+        <div class="bv-testimonial-card__author">
+          <div class="bv-testimonial-card__avatar">
+            <img src="{{ t_avatar }}" alt="{{ t_name }}" loading="lazy" width="40" height="40">
+          </div>
+          <div>
+            <p class="bv-testimonial-card__name">{{ t_name }}</p>
+            <p class="bv-testimonial-card__location">{{ t_location }}</p>
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <!-- Trust badges -->
+  <div class="bv-trust-badges bv-max-w">
+    <div class="bv-trust-badge bv-reveal">
+      <span class="bv-trust-badge__icon">🚀</span>
+      <span class="bv-trust-badge__label">Fast Delivery</span>
+      <span class="bv-trust-badge__sub">2–5 business days</span>
+    </div>
+    <div class="bv-trust-badge bv-reveal" data-delay="1">
+      <span class="bv-trust-badge__icon">↩️</span>
+      <span class="bv-trust-badge__label">Easy Returns</span>
+      <span class="bv-trust-badge__sub">14-day policy</span>
+    </div>
+    <div class="bv-trust-badge bv-reveal" data-delay="2">
+      <span class="bv-trust-badge__icon">🔒</span>
+      <span class="bv-trust-badge__label">Secure Payment</span>
+      <span class="bv-trust-badge__sub">Encrypted checkout</span>
+    </div>
+    <div class="bv-trust-badge bv-reveal" data-delay="3">
+      <span class="bv-trust-badge__icon">✨</span>
+      <span class="bv-trust-badge__label">Luxury Quality</span>
+      <span class="bv-trust-badge__sub">Premium fabrics</span>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ByVelvet Testimonials",
+  "settings": [
+    { "type": "header", "content": "Testimonial 1" },
+    { "type": "text",     "id": "t1_name",     "label": "Name",     "default": "Noor Al-Hassan" },
+    { "type": "text",     "id": "t1_location", "label": "Location", "default": "Kuwait City" },
+    { "type": "textarea", "id": "t1_text",     "label": "Quote",    "default": "ByVelvet completely transformed my wardrobe. The quality of every piece is exceptional." },
+    { "type": "text",     "id": "t1_avatar",   "label": "Avatar URL" },
+    { "type": "header", "content": "Testimonial 2" },
+    { "type": "text",     "id": "t2_name",     "label": "Name",     "default": "Layla Mahmoud" },
+    { "type": "text",     "id": "t2_location", "label": "Location", "default": "Dubai, UAE" },
+    { "type": "textarea", "id": "t2_text",     "label": "Quote",    "default": "ByVelvet stands apart. The curation is impeccable and every piece feels like it was made just for me." },
+    { "type": "text",     "id": "t2_avatar",   "label": "Avatar URL" },
+    { "type": "header", "content": "Testimonial 3" },
+    { "type": "text",     "id": "t3_name",     "label": "Name",     "default": "Sara Al-Rashidi" },
+    { "type": "text",     "id": "t3_location", "label": "Location", "default": "Riyadh, Saudi Arabia" },
+    { "type": "textarea", "id": "t3_text",     "label": "Quote",    "default": "Fast shipping, stunning packaging, and clothes that look even better in person." },
+    { "type": "text",     "id": "t3_avatar",   "label": "Avatar URL" }
+  ],
+  "presets": [
+    {
+      "name": "ByVelvet Testimonials"
+    }
+  ]
+}
+{% endschema %}

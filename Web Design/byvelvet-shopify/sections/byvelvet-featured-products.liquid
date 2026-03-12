@@ -1,0 +1,159 @@
+<section id="shop" class="bv-products">
+  <div class="bv-max-w">
+
+    <!-- Header -->
+    <div class="bv-products__header bv-reveal">
+      <p class="bv-products__eyebrow">Carefully Selected</p>
+      <h2 class="bv-products__heading">
+        Your Journey <em>Starts Here</em>
+      </h2>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="bv-filter-tabs bv-reveal" data-delay="1">
+      {%- assign categories = "all,dresses,t-shirts,national-day-collection,bags,winter-collection,kids" | split: "," -%}
+      {%- assign category_labels = "All,Dresses,T-Shirts,National Day Collection,Bags,Winter Collection,Kids" | split: "," -%}
+      {%- for cat in categories -%}
+        <button
+          class="bv-filter-tab{% if forloop.first %} bv-active{% endif %}"
+          data-category="{{ cat }}"
+        >
+          {{ category_labels[forloop.index0] }}
+        </button>
+      {%- endfor -%}
+    </div>
+
+    <!-- Product grid -->
+    <div class="bv-products__grid">
+
+      {%- if section.settings.collection != blank -%}
+        {%- assign col = collections[section.settings.collection] -%}
+        {%- for product in col.products limit: 8 -%}
+          {%- assign cat_tag = "" -%}
+          {%- for tag in product.tags -%}
+            {%- assign tag_lower = tag | downcase | replace: " ", "-" -%}
+            {%- if tag_lower == "dresses" or tag_lower == "t-shirts" or tag_lower == "national-day-collection" or tag_lower == "bags" or tag_lower == "winter-collection" or tag_lower == "kids" -%}
+              {%- assign cat_tag = tag_lower -%}
+            {%- endif -%}
+          {%- endfor -%}
+          <div class="bv-product-card bv-reveal" data-category="{{ cat_tag }}">
+            <div class="bv-product-card__image-wrap">
+              {%- if product.featured_image -%}
+                <img
+                  src="{{ product.featured_image | image_url: width: 600 }}"
+                  alt="{{ product.featured_image.alt | default: product.title }}"
+                  loading="lazy"
+                  width="600"
+                  height="800"
+                >
+              {%- endif -%}
+
+              {%- if product.compare_at_price > product.price -%}
+                <span class="bv-product-card__badge bv-badge--sale">Sale</span>
+              {%- elsif product.tags contains "new" or product.tags contains "New" -%}
+                <span class="bv-product-card__badge bv-badge--new">New</span>
+              {%- endif -%}
+
+              <button class="bv-product-card__wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+
+              <a href="{{ product.url }}" class="bv-product-card__quick-add">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
+                Quick Add
+              </a>
+            </div>
+
+            <h3 class="bv-product-card__name">{{ product.title }}</h3>
+            <div class="bv-product-card__price">
+              <span class="bv-product-card__price-current">
+                {{ product.price | money }}
+              </span>
+              {%- if product.compare_at_price > product.price -%}
+                <span class="bv-product-card__price-original">
+                  {{ product.compare_at_price | money }}
+                </span>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+
+      {%- else -%}
+        <!-- Demo products (shown when no collection is selected in theme editor) -->
+        {%- assign demo_products = "Classic Drape Abaya|dresses|38 KWD|https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80|new,Linen Coord Set|t-shirts|45 KWD|https://images.unsplash.com/photo-1551163943-3f7153f8c32e?w=600&q=80|,Velvet Slip Midi|dresses|32 KWD|https://images.unsplash.com/photo-1594938298603-c8148c4b4869?w=600&q=80|sale,Oversized Wool Coat|national-day-collection|68 KWD|https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80|new,Wide Leg Trouser Set|t-shirts|42 KWD|https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80|,Open Front Abaya|dresses|35 KWD|https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&q=80|,Satin Wrap Dress|dresses|29 KWD|https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80|,Leather Tote Bag|bags|55 KWD|https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80|new" | split: "," -%}
+        {%- for demo in demo_products -%}
+          {%- assign parts = demo | split: "|" -%}
+          {%- assign d_name  = parts[0] -%}
+          {%- assign d_cat   = parts[1] -%}
+          {%- assign d_price = parts[2] -%}
+          {%- assign d_img   = parts[3] -%}
+          {%- assign d_badge = parts[4] -%}
+          <div class="bv-product-card bv-reveal" data-category="{{ d_cat }}">
+            <div class="bv-product-card__image-wrap">
+              <img src="{{ d_img }}" alt="{{ d_name }}" loading="lazy">
+
+              {%- if d_badge == "new" -%}
+                <span class="bv-product-card__badge bv-badge--new">New</span>
+              {%- elsif d_badge == "sale" -%}
+                <span class="bv-product-card__badge bv-badge--sale">Sale</span>
+              {%- endif -%}
+
+              <button class="bv-product-card__wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+
+              <a href="/collections/all" class="bv-product-card__quick-add">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
+                Quick Add
+              </a>
+            </div>
+
+            <h3 class="bv-product-card__name">{{ d_name }}</h3>
+            <div class="bv-product-card__price">
+              <span class="bv-product-card__price-current">{{ d_price }}</span>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+
+    </div><!-- /grid -->
+
+    <!-- View All CTA -->
+    <div class="bv-products__cta bv-reveal">
+      <a href="{{ section.settings.view_all_url | default: '/collections/all' }}" class="bv-btn--charcoal-outline">
+        {{ section.settings.view_all_text | default: 'View All Products' }}
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ByVelvet Featured Products",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Product collection",
+      "info": "Select a collection to pull real products. Leave blank to show demo products."
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All button text",
+      "default": "View All Products"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View All button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ByVelvet Featured Products"
+    }
+  ]
+}
+{% endschema %}

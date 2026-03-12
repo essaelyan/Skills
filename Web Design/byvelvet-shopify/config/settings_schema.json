@@ -1,0 +1,73 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "ByVelvet Dawn",
+    "theme_version": "1.0.0",
+    "theme_author": "ByVelvet",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "ByVelvet Brand",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bv_cream",
+        "label": "Cream (background)",
+        "default": "#FAF9F6"
+      },
+      {
+        "type": "color",
+        "id": "bv_charcoal",
+        "label": "Charcoal (text / dark bg)",
+        "default": "#1A1A1A"
+      },
+      {
+        "type": "color",
+        "id": "bv_velvet",
+        "label": "Velvet accent",
+        "default": "#644f46"
+      },
+      {
+        "type": "color",
+        "id": "bv_warm_gray",
+        "label": "Warm gray",
+        "default": "#8B8680"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Heading font",
+        "default": "playfair_display_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "inter_n4"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram",
+        "default": "https://www.instagram.com/byvelvet.store"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter / X",
+        "default": "https://twitter.com"
+      }
+    ]
+  }
+]

@@ -1,0 +1,62 @@
+<section class="bv-newsletter">
+  <div class="bv-newsletter__inner bv-reveal">
+    <p class="bv-newsletter__eyebrow">Join the Inner Circle</p>
+    <h2 class="bv-newsletter__heading">
+      First to know,<br>
+      <em>first to wear.</em>
+    </h2>
+    <p class="bv-newsletter__subtitle">
+      Subscribe for exclusive access to new arrivals, styling tips, and members-only offers. No spam — only beauty.
+    </p>
+
+    {%- form 'customer', id: 'bv-newsletter-form', class: 'bv-newsletter__form' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input
+        type="email"
+        name="contact[email]"
+        class="bv-newsletter__input"
+        placeholder="Your email address"
+        required
+        autocomplete="email"
+      >
+      <button type="submit" class="bv-newsletter__submit">
+        Subscribe
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    {%- endform -%}
+
+    <div class="bv-newsletter__success" id="bv-newsletter-success">
+      Thank you for subscribing ✓
+    </div>
+
+    <p class="bv-newsletter__legal">
+      By subscribing you agree to our <a href="/policies/privacy-policy" style="color:inherit;text-decoration:underline;">privacy policy</a>. Unsubscribe anytime.
+    </p>
+  </div>
+</section>
+
+<script>
+  (function() {
+    var form = document.getElementById('bv-newsletter-form');
+    var success = document.getElementById('bv-newsletter-success');
+    if (!form || !success) return;
+    form.addEventListener('submit', function() {
+      setTimeout(function() {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }, 600);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "ByVelvet Newsletter",
+  "settings": [],
+  "presets": [
+    {
+      "name": "ByVelvet Newsletter"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "local-skills",
+  "description": "Local custom skills",
+  "owner": {
+    "name": "jesus"
+  },
+  "plugins": [
+    {
+      "name": "video-to-website",
+      "description": "Turn a video file into a premium scroll-driven animated website with GSAP, canvas frame rendering, and layered animation choreography",
+      "version": "1.0.0",
+      "author": {
+        "name": "jesus"
+      },
+      "source": "./Vidoe to website"
+    }
+  ]
+}

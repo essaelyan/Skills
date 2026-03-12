@@ -1,0 +1,8 @@
+{
+  "name": "video-to-website",
+  "description": "Turn a video file into a premium scroll-driven animated website with GSAP, canvas frame rendering, and layered animation choreography",
+  "version": "1.0.0",
+  "author": {
+    "name": "jesus"
+  }
+}

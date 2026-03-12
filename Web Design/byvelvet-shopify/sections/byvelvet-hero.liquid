@@ -1,0 +1,122 @@
+{{ 'byvelvet.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'byvelvet.js' | asset_url }}" defer></script>
+
+<section class="bv-hero">
+  <!-- Eyebrow -->
+  <p class="bv-hero__eyebrow bv-reveal" data-delay="1">
+    {{ section.settings.eyebrow | default: 'Luxury Fashion · Kuwait' }}
+  </p>
+
+  <!-- Heading -->
+  <h1 class="bv-hero__heading bv-reveal" data-delay="2">
+    {{ section.settings.heading_line1 | default: 'Draped in' }}<br>
+    <em>{{ section.settings.heading_line2 | default: 'Elegance' }}</em>
+  </h1>
+
+  <!-- Subtitle -->
+  <p class="bv-hero__subtitle bv-reveal" data-delay="3">
+    {{ section.settings.subtitle | default: 'Curated luxury fashion for the modern woman. Timeless pieces crafted with intention and worn with confidence.' }}
+  </p>
+
+  <!-- Buttons -->
+  <div class="bv-hero__buttons bv-reveal" data-delay="4">
+    <a href="{{ section.settings.primary_btn_url | default: '#shop' }}" class="bv-btn--cream">
+      {{ section.settings.primary_btn_text | default: 'Explore Collection' }}
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+    <a href="{{ section.settings.secondary_btn_url | default: '/collections/all' }}" class="bv-btn--outline">
+      {{ section.settings.secondary_btn_text | default: 'Shop Now' }}
+    </a>
+  </div>
+
+  <!-- 3D Scroll Card -->
+  <div class="bv-scroll-container bv-reveal" data-delay="5">
+    <div class="bv-scroll-card">
+      {%- if section.settings.hero_image -%}
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 1400 }}"
+          alt="{{ section.settings.hero_image.alt | default: 'ByVelvet Collection' }}"
+          loading="eager"
+          width="1400"
+          height="720"
+        >
+      {%- else -%}
+        <img
+          src="https://tempfile.redpandaai.co/kieai/661779/creative-content-engine/1773011005078-i5rr3g1dytk.png"
+          alt="ByVelvet Collection"
+          loading="eager"
+        >
+      {%- endif -%}
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="bv-scroll-indicator">
+    <div class="bv-scroll-indicator__dot"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ByVelvet Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Luxury Fashion · Kuwait"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading line 1",
+      "default": "Draped in"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading line 2 (italic)",
+      "default": "Elegance"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Curated luxury fashion for the modern woman. Timeless pieces crafted with intention and worn with confidence."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image (shown in 3D card)"
+    },
+    {
+      "type": "text",
+      "id": "primary_btn_text",
+      "label": "Primary button text",
+      "default": "Explore Collection"
+    },
+    {
+      "type": "url",
+      "id": "primary_btn_url",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_btn_text",
+      "label": "Secondary button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "secondary_btn_url",
+      "label": "Secondary button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ByVelvet Hero"
+    }
+  ]
+}
+{% endschema %}

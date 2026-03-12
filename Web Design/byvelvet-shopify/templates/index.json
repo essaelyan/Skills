@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "byvelvet-hero": {
+      "type": "byvelvet-hero",
+      "settings": {
+        "eyebrow": "Luxury Fashion · Kuwait",
+        "heading_line1": "Draped in",
+        "heading_line2": "Elegance",
+        "subtitle": "Curated luxury fashion for the modern woman. Timeless pieces crafted with intention and worn with confidence.",
+        "primary_btn_text": "Explore Collection",
+        "secondary_btn_text": "Shop Now"
+      }
+    },
+    "byvelvet-marquee": {
+      "type": "byvelvet-marquee",
+      "settings": {}
+    },
+    "byvelvet-featured-products": {
+      "type": "byvelvet-featured-products",
+      "settings": {
+        "view_all_text": "View All Products"
+      }
+    },
+    "byvelvet-testimonials": {
+      "type": "byvelvet-testimonials",
+      "settings": {
+        "t1_name": "Noor Al-Hassan",
+        "t1_location": "Kuwait City",
+        "t1_text": "ByVelvet completely transformed my wardrobe. The quality of every piece is exceptional — you can feel the luxury the moment you put it on. My go-to for special occasions and everyday elegance.",
+        "t2_name": "Layla Mahmoud",
+        "t2_location": "Dubai, UAE",
+        "t2_text": "I've shopped with many luxury brands, but ByVelvet stands apart. The curation is impeccable and every piece feels like it was made just for me. Absolutely obsessed with my Velvet Slip Dress.",
+        "t3_name": "Sara Al-Rashidi",
+        "t3_location": "Riyadh, Saudi Arabia",
+        "t3_text": "Fast shipping, stunning packaging, and clothes that look even better in person. ByVelvet has mastered the art of online luxury fashion. My entire family now orders from them!",
+        "t3_avatar": "https://tempfile.redpandaai.co/kieai/661779/creative-content-engine/1773010126333-5gbxlbe0yda.png"
+      }
+    },
+    "byvelvet-newsletter": {
+      "type": "byvelvet-newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "byvelvet-hero",
+    "byvelvet-marquee",
+    "byvelvet-featured-products",
+    "byvelvet-testimonials",
+    "byvelvet-newsletter"
+  ]
+}

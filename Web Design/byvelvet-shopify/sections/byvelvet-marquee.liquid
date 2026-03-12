@@ -1,0 +1,25 @@
+<section class="bv-marquee">
+  <div class="bv-marquee__track">
+    {%- assign items = "New Arrivals,Free Shipping Over 150 KWD,Luxury Fabrics,Curated Collections,Exclusive Designs,Handcrafted Quality,Middle East Delivery" | split: "," -%}
+    {%- for i in (1..2) -%}
+      {%- for item in items -%}
+        <span class="bv-marquee__item">
+          {{- item -}}
+          <span class="bv-marquee__star" aria-hidden="true"></span>
+        </span>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ByVelvet Marquee",
+  "settings": [],
+  "presets": [
+    {
+      "name": "ByVelvet Marquee"
+    }
+  ]
+}
+{% endschema %}
